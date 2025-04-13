@@ -40,7 +40,7 @@ const bookSlice = createSlice({
 
 export const fetchAllBooks = () => async (dispatch) => {
   dispatch(bookSlice.actions.fetchBooksRequest());
-  await axios.get("http://localhost:3000/api/v1/books-all", {
+  await axios.get("library-managment-system-backend.vercel.app/books-all", {
     withCredentials: true,
   })
     .then((res) => {
@@ -56,7 +56,7 @@ export const fetchAllBooks = () => async (dispatch) => {
 
 export const addBook = (data) => async (dispatch) => {
     dispatch(bookSlice.actions.addBookRequest());
-    await axios.post("http://localhost:3000/api/v1/admin/add",data, {
+    await axios.post("library-managment-system-backend.vercel.app/admin/add",data, {
       withCredentials: true,
       headers:{
         "Content-Type":"application/json"
