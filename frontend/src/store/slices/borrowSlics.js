@@ -66,7 +66,7 @@ const borrowSlice=createSlice({
 
 export const fetchUserBorrowedBooks = () => async (dispatch) => {
     dispatch(borrowSlice.actions.fetchUserBorrowedBooksRequest());
-    await axios.get("http://localhost:3000/api/v1/my-borrowed-books", {
+    await axios.get("library-managment-system-backend.vercel.app/my-borrowed-books", {
       withCredentials: true,
     })
       .then((res) => {
@@ -81,7 +81,7 @@ export const fetchUserBorrowedBooks = () => async (dispatch) => {
 
 export const fetchAllBorrowedBooks = () => async (dispatch) => {
     dispatch(borrowSlice.actions.fetchAllBorrowedBooksRequest());
-    await axios.get("http://localhost:3000/api/v1/borrowed-books-by-users", {
+    await axios.get("library-managment-system-backend.vercel.app/borrowed-books-by-users", {
       withCredentials: true,
     })
       .then((res) => {
@@ -95,7 +95,7 @@ export const fetchAllBorrowedBooks = () => async (dispatch) => {
 };
 export const recordBorrowBook = (email,id) => async (dispatch) => {
     dispatch(borrowSlice.actions.recordBookRequest());
-    await axios.post(`http://localhost:3000/api/v1/record-borrow-book/${id}`,{email}, {
+    await axios.post(`library-managment-system-backend.vercel.app/record-borrow-book/${id}`,{email}, {
       withCredentials: true,
       headers:{
         "Content-Type":"application/json"
@@ -112,7 +112,7 @@ export const recordBorrowBook = (email,id) => async (dispatch) => {
   };
   export const returnBorrowBook = (email,id) => async (dispatch) => {
     dispatch(borrowSlice.actions.returnBookRequest());
-    await axios.put(`http://localhost:3000/api/v1/return-borrow-book/${id}`,{email}, {
+    await axios.put(`library-managment-system-backend.vercel.app/return-borrow-book/${id}`,{email}, {
       withCredentials: true,
       headers:{
         "Content-Type":"application/json"
