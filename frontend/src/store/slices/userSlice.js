@@ -24,7 +24,7 @@ const userSlice = createSlice({
 export const fetchAllUsers = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchAllRequest());
   await axios
-    .get("http://localhost:3000/api/v1/all", {
+    .get("library-managment-system-backend.vercel.app/all", {
       withCredentials: true,
     })
     .then((res) => {
