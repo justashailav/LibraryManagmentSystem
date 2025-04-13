@@ -125,7 +125,7 @@ export const resetAuthSlice=()=>(dispatch)=>{
 
 export const register = (data) => async (dispatch) => {
   dispatch(authSlice.actions.register());
-  await axios.post("https://librarysystem-u6q7.onrender.com", data, {
+  await axios.post("library-managment-system-backend.vercel.app/register", data, {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
@@ -143,7 +143,7 @@ export const otpVerification = (email, otp) => async (dispatch) => {
   dispatch(authSlice.actions.otpVerification());
   console.log("OTP Verification Request:", { email, otp });
   await axios.post(
-    "https://librarysystem-u6q7.onrender.com",
+    "library-managment-system-backend.vercel.app/verify-otp",
     { email, otp },
     {
       withCredentials: true,
@@ -166,7 +166,7 @@ export const otpVerification = (email, otp) => async (dispatch) => {
 
 export const login = (data) => async (dispatch) => {
   dispatch(authSlice.actions.otpVerification());
-  await axios.post("https://librarysystem-u6q7.onrender.com", data, {
+  await axios.post("library-managment-system-backend.vercel.app/login", data, {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
@@ -183,7 +183,7 @@ export const login = (data) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   dispatch(authSlice.actions.logout());
 <<<<<<< HEAD
-  await axios.get("http://localhost:3000/api/v1/logout", {
+  await axios.get("library-managment-system-backend.vercel.app/logout", {
 =======
   await axios("https://librarysystem-u6q7.onrender.com", {
 >>>>>>> 23aa5e6904ae7e70bda4a0089fb8a4a830ef02f0
@@ -201,7 +201,7 @@ export const logout = () => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
     dispatch(authSlice.actions.getUser());
 <<<<<<< HEAD
-    await axios.get("http://localhost:3000/api/v1/me", {
+    await axios.get("library-managment-system-backend.vercel.app/me", {
 =======
     await axios("https://librarysystem-u6q7.onrender.com", {
 >>>>>>> 23aa5e6904ae7e70bda4a0089fb8a4a830ef02f0
@@ -216,7 +216,7 @@ export const getUser = () => async (dispatch) => {
 };
 export const forgotPassword=(email)=>async(dispatch)=>{
   dispatch(authSlice.actions.forgotPassword());
-  await axios.post("https://librarysystem-u6q7.onrender.com", {email}, {
+  await axios.post("library-managment-system-backend.vercel.app/password/forgot", {email}, {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
@@ -231,7 +231,7 @@ export const forgotPassword=(email)=>async(dispatch)=>{
 }
 export const resetPassword=(data,token)=>async(dispatch)=>{
   dispatch(authSlice.actions.resetPassword());
-  await axios.put(`https://librarysystem-u6q7.onrender.com`, data, {
+  await axios.put(`library-managment-system-backend.vercel.app/password/reset/${token}`, data, {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
@@ -246,7 +246,7 @@ export const resetPassword=(data,token)=>async(dispatch)=>{
 }
 export const updatePassword=(data)=>async(dispatch)=>{
   dispatch(authSlice.actions.updatePassword());
-  await axios.put("https://librarysystem-u6q7.onrender.com", data, {
+  await axios.put("library-managment-system-backend.vercel.app/password/update", data, {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",
