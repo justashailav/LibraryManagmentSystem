@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin:'https://librarysystem-frontend.onrender.com/',
+    origin:'library-managment-system-backend.vercel.app',
     credentials:true
 }
 const PORT = process.env.PORT || 4000;
